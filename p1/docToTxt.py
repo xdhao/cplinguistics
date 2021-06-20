@@ -1,7 +1,7 @@
 import requests, pymongo
 from pymongo import MongoClient, ASCENDING, DESCENDING
 
-f = open('input.txt', 'w')
+f = open('/home/vagrant/kr/Word2Vec/Samples/input.txt', 'w')
 client = MongoClient()
 database = client.v102news
 news = database.news
