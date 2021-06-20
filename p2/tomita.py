@@ -5,7 +5,7 @@ client = MongoClient()
 database = client.v102news
 news = database.news
 tomita = database.tomita
-os.system('cd /home/vagrant/tomita-parser/build/bin/')
+os.chdir(r"/home/vagrant/tomita-parser/build/bin/")
 
 for x in news.find( {} ).sort([('_id', ASCENDING)]):
     finput = open('input.txt', 'w')
@@ -25,7 +25,7 @@ for x in news.find( {} ).sort([('_id', ASCENDING)]):
                 }
                 tomita.insert_one(tomita_)
 
-f = open('source.txt', 'w')
+f = open('/home/vagrant/kr/Word2Vec/source.txt', 'w')
 for x in tomita.find( {} ).sort([('_id', ASCENDING)]):
     f.write(x['name'])
 f.close()
