@@ -30,14 +30,20 @@ for i in range(0, 40):
     newsLine = bigline.text
     newsLine =  re.sub("^\s+|\n|\r|\s+$", '', newsLine) #3 текст новости
     newsTime = newsTimes.text #4   дата
+    if newsTime:
+        s1="".join(c for c in newsTime if c.isalpha()==False)
+        newsTime = s1
     news_ = {
     "headline":headline,
     "text":newsLine,
     "url":url,
     "time":newsTime
     }
-    if news.find_one({'url': url}) is None:
-        news.insert_one(news_)
+    if news.find_one({'headline': headline}) is None:
+        if news.find_one({'url': url}) is None:
+            if news.find_one({'time': newsTime}) is None:
+                news.insert_one(news_)
+                print('added entry to the database', i, url )
     else:
         print('entry already exists', i, url )
     
