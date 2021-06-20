@@ -72,7 +72,7 @@ model = word2Vec.fit(words)
 w2v_df = model.transform(words)
 w2v_df.show()
 
-f = open('source.txt', 'r')
+f = open('/home/vagrant/kr/Word2Vec/source.txt', 'r')
 for line in f:
     #Ввод слова
     words = line.replace("\n", "")
