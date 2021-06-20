@@ -44,7 +44,7 @@ stop_words=stopwords.words('russian')
 positive_tweet_tokens = []
 negative_tweet_tokens = []
 
-with open('positive.csv',encoding='utf-8',newline='') as csvfile:
+with open('/home/vagrant/kr/tonality/positive.csv',encoding='utf-8',newline='') as csvfile:
    reader = csv.DictReader(csvfile, delimiter=';')
    i = 0
    for row in reader:
@@ -55,7 +55,7 @@ with open('positive.csv',encoding='utf-8',newline='') as csvfile:
        tokens = word_tokenize(tweet)
        positive_tweet_tokens.append(tokens)
 
-with open('negative.csv',encoding='utf-8',newline='') as csvfile:
+with open('/home/vagrant/kr/tonality/negative.csv',encoding='utf-8',newline='') as csvfile:
    reader = csv.DictReader(csvfile, delimiter=';')
    i = 0
    for row in reader:
